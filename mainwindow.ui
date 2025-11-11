@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1165</width>
+    <height>728</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #2c313c; 
+    color: #dfe6e9; 
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+QGroupBox {
+    background-color: #353b48; 
+    border: 1px solid #57606f;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 5px 15px;
+    margin-left: 10px;
+    background-color: #0097e6;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 11pt;
+}
+
+QGroupBox#statsGroupBox {
+    border-color: #4cd137; 
+}
+
+QGroupBox#statsGroupBox::title {
+    background-color: #4cd137; 
+}
+
+QLabel {
+    color: #dfe6e9;
+    font-size: 10pt;
+    background-color: transparent;
+}
+
+QLineEdit, QDateEdit, QTimeEdit, QDoubleSpinBox, QSpinBox {
+    background-color: #2f3640;
+    border: 1px solid #57606f;
+    border-radius: 4px;
+    padding: 8px;
+    color: #f5f6fa;
+}
+
+QLineEdit:focus, QDateEdit:focus, QTimeEdit:focus, QDoubleSpinBox:focus, QSpinBox:focus {
+    border: 1px solid #00a8ff; 
+}
+
+QLineEdit:hover, QDateEdit:hover, QTimeEdit:hover, QDoubleSpinBox:hover, QSpinBox:hover {
+    border: 1px solid #718093;
+}
+
+QPushButton {
+    background-color: #0097e6; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 10pt;
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
+}
+
+QPushButton:hover {
+    background-color: #00a8ff; 
+}
+
+QPushButton:pressed {
+    background-color: #0087c9; 
+}
+
+QPushButton#boutonAjouter {
+    background-color: #4cd137;
+}
+QPushButton#boutonAjouter:hover {
+    background-color: #44bd32; 
+}
+QPushButton#boutonAjouter:pressed {
+    background-color: #3aa12b; 
+}
+
+QPushButton#boutonModifier {
+    background-color: #f0932b;
+}
+QPushButton#boutonModifier:hover {
+    background-color: #e67e22;
+}
+QPushButton#boutonModifier:pressed {
+    background-color: #d35400;
+}
+
+QPushButton#boutonSupprimer {
+    background-color: #e84118;
+}
+QPushButton#boutonSupprimer:hover {
+    background-color: #c23616;
+}
+QPushButton#boutonSupprimer:pressed {
+    background-color: #a22b0f;
+}
+
+QTableWidget {
+    background-color: #353b48;
+    border: 1px solid #57606f;
+    border-radius: 5px;
+    gridline-color: #2f3640;
+    color: #dfe6e9;
+    alternate-background-color: #3d4451;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border-bottom: 1px solid #2f3640;
+}
+
+QTableWidget::item:selected {
+    background-color: #0097e6;
+    color: #ffffff;
+}
+
+QHeaderView::section {
+    background-color: #2f3640;
+    color: #00a8ff;
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar { background-color: #2f3640; }
+QCalendarWidget QToolButton { color: #ffffff; background-color: transparent; border: none; }
+QCalendarWidget QToolButton:hover { background-color: #57606f; }
+QCalendarWidget QAbstractItemView { background-color: #353b48; selection-background-color: #0097e6; color: #dfe6e9; }
+
+QRadioButton, QCheckBox {
+    color: #dfe6e9;
+    background-color: transparent;
+    spacing: 8px;
+    font-size: 10pt;
+}
+
+QRadioButton::indicator, QCheckBox::indicator {
+    width: 16px; height: 16px;
+    border: 1px solid #57606f;
+    background-color: #2f3640;
+}
+QRadioButton::indicator { border-radius: 8px; }
+QCheckBox::indicator { border-radius: 3px; }
+
+QRadioButton::indicator:hover, QCheckBox::indicator:hover {
+    border-color: #00a8ff;
+}
+
+QRadioButton::indicator:checked, QCheckBox::indicator:checked {
+    background-color: #00a8ff;
+    border: 1px solid #0097e6;
+}
+
+QScrollBar:vertical {
+    border: none; background: #2f3640; width: 12px;
+    margin: 0px; border-radius: 6px;
+}
+QScrollBar::handle:vertical {
+    background: #57606f; min-height: 25px; border-radius: 6px;
+}
+QScrollBar::handle:vertical:hover { background: #718093; }
+
+QWidget#graphiqueWidget {
+    background-color: #f5f6fa;
+    border: 2px dashed #57606f;
+    border-radius: 10px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>1141</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>82</width>
+        <height>681</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="sidebarLayout_4">
+       <item>
+        <widget class="QLabel" name="sidebarLogo_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 24pt; color: white; padding: 10px;</string>
+         </property>
+         <property name="text">
+          <string>👁️</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnUtilisateur_4">
+         <property name="toolTip">
+          <string>Utilisateurs</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.1); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 15px 5px; 
+    font-size: 16pt;
+    margin: 2px 5px;
+}
+QPushButton:hover { background: rgba(255,255,255,0.2); }</string>
+         </property>
+         <property name="text">
+          <string>👤</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnClient_4">
+         <property name="toolTip">
+          <string>Clients</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton {
+    background: rgba(255,255,255,0.1); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 15px 5px; 
+    font-size: 16pt;
+    margin: 2px 5px;
+}
+QPushButton:hover { background: rgba(255,255,255,0.2); }
+         </string>
+         </property>
+         <property name="text">
+          <string>👥</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnRendezVous_4">
+         <property name="toolTip">
+          <string>Rendez-vous</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton {
+    background: rgba(255,255,255,0.3); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 15px 5px; 
+    font-size: 16pt;
+    margin: 2px 5px;
+}
+QPushButton:hover { background: rgba(255,255,255,0.3); }
+QPushButton:pressed { background: rgba(255,255,255,0.4); }
+QPushButton:checked { background: rgba(255,255,255,0.5); }</string>
+         </property>
+         <property name="text">
+          <string>📅</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnProduit_4">
+         <property name="toolTip">
+          <string>Produits</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton {
+    background: rgba(255,255,255,0.1); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 15px 5px; 
+    font-size: 16pt;
+    margin: 2px 5px;
+}
+QPushButton:hover { background: rgba(255,255,255,0.2); }
+         </string>
+         </property>
+         <property name="text">
+          <string>🛍️</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnFournisseur_4">
+         <property name="toolTip">
+          <string>Fournisseurs</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton {
+    background: rgba(255,255,255,0.1); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 15px 5px; 
+    font-size: 16pt;
+    margin: 2px 5px;
+}
+QPushButton:hover { background: rgba(255,255,255,0.2); }
+         </string>
+         </property>
+         <property name="text">
+          <string>🏢</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="sidebarSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="formGroupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>0</y>
+        <width>591</width>
+        <height>232</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Formulaire Rendez-vous</string>
+      </property>
+      <layout class="QGridLayout" name="formGridLayout_6">
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelPrenom_6">
+         <property name="text">
+          <string>ID:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="labelMdp_6">
+         <property name="text">
+          <string>Heure:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDateEdit" name="dateEditdate_6">
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2024</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelDate_6">
+         <property name="text">
+          <string>Date  :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelSalaire_6">
+         <property name="text">
+          <string>Client:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="lineEdit"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBox"/>
+       </item>
+       <item row="1" column="3">
+        <widget class="QTimeEdit" name="timeEdit"/>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QGroupBox" name="roleGroupBox_6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>92</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Rôle</string>
+         </property>
+         <layout class="QHBoxLayout" name="roleLayout_6">
+          <item>
+           <widget class="QRadioButton" name="radioOpticien_6">
+            <property name="text">
+             <string>Opticien</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioAssistant_6">
+            <property name="text">
+             <string>Assistant</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="2" colspan="2">
+        <widget class="QGroupBox" name="statusGroupBox_6">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>92</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Statut</string>
+         </property>
+         <layout class="QHBoxLayout" name="statusLayout_6">
+          <item>
+           <widget class="QRadioButton" name="radioActif_6">
+            <property name="text">
+             <string>Confirme</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioInactif_6">
+            <property name="text">
+             <string>Annuler</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_2">
+            <property name="text">
+             <string>En Attente</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="btnAjouter_5">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>230</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(53, 132, 228);</string>
+      </property>
+      <property name="text">
+       <string>➕ Ajouter</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnsupprimer_5">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>230</y>
+        <width>281</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(53, 132, 228);</string>
+      </property>
+      <property name="text">
+       <string>🔄 Supprimer élement selectionner</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnGenererPDF_5">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>230</y>
+        <width>251</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(53, 132, 228);</string>
+      </property>
+      <property name="text">
+       <string>📊 Générer PDF</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="searchGroupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>281</y>
+        <width>1031</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Recherche et Filtrage</string>
+      </property>
+      <layout class="QHBoxLayout" name="searchLayout_5">
+       <item>
+        <widget class="QLabel" name="labelSearch_5">
+         <property name="text">
+          <string>Rechercher :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_recherche"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelFilterBy_5">
+         <property name="maximumSize">
+          <size>
+           <width>500</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Filtrer par :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkclient_5">
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Client</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkid_5">
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkheure_5">
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Heure</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkRole_5">
+         <property name="maximumSize">
+          <size>
+           <width>90</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Rôle</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkstatut_5">
+         <property name="text">
+          <string>Statut</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkdate_5">
+         <property name="text">
+          <string>Date</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_appliquer_recherche_2">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(53, 132, 228);</string>
+         </property>
+         <property name="text">
+          <string>🔄 Appliquer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnResetrech_6">
+         <property name="text">
+          <string>🗑️ Reset</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QCalendarWidget" name="calendarWidget">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>0</y>
+        <width>411</width>
+        <height>211</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="statsGroupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>350</y>
+        <width>381</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>9100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>📈 Statistiques Utilisateurs</string>
+      </property>
+      <layout class="QVBoxLayout" name="statsLayout_5">
+       <item>
+        <widget class="QLabel" name="labelChartPlaceholder_5">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: #f5f5f5; border: 2px dashed #ccc; border-radius: 10px; color: #666; font-style: italic;</string>
+         </property>
+         <property name="text">
+          <string>[Graphique des activités]</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelTotalUsers_5">
+         <property name="text">
+          <string>Total utilisateurs: 12</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelActiveUsers_5">
+         <property name="text">
+          <string>Rendez_vous confirmer: 8</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelInactiveUsers_5">
+         <property name="text">
+          <string>Rendez-vous annuler: 4</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelRoleDistribution_5">
+         <property name="text">
+          <string>Opticiens: 7 | Assistants: 5</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="statsSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="sortGroupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>600</y>
+        <width>671</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>104</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>🔽 Tri Avancé des Utilisateurs</string>
+      </property>
+      <layout class="QHBoxLayout" name="sortLayout_5">
+       <item>
+        <widget class="QLabel" name="labelSortBy_5">
+         <property name="text">
+          <string>Trier par :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_tri"/>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioSortAsc_5">
+         <property name="text">
+          <string>Croissant (A-Z)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioSortDesc_5">
+         <property name="text">
+          <string>Décroissant (Z-A)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_appliquer_tri">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(53, 132, 228);</string>
+         </property>
+         <property name="text">
+          <string>🔄 Appliquer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnResetSort_5">
+         <property name="text">
+          <string>🗑️ Reset</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="btnReinitMdp_6">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>230</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(53, 132, 228);</string>
+      </property>
+      <property name="text">
+       <string>🔄 Modifier</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidgetUsers_5">
+      <property name="geometry">
+       <rect>
+        <x>95</x>
+        <y>380</y>
+        <width>651</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Client</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Heure</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Role</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Statut</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1165</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
